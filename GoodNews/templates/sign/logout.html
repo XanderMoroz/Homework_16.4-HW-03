@@ -1,0 +1,42 @@
+{% extends "flatpages/default.html" %}
+
+{% block content %}
+{% load static %}
+ <section class="hero is-info is-fullheight">
+          <div class="hero-body">
+              <div class="container">
+                  <div class="columns is-centered">
+                      <div class="column is-5-tablet is-5-desktop is-5-widescreen">
+                          <form class="box">
+                              <div class="field has-text-centered">
+                                  <!-- Подключаем логотип-->
+                                  <img src="{%static "image/goodnews-logo.png" %}" width="112" height="28">
+
+                              </div>
+                              <!-- Подключаем приветствие -->
+                              <div>
+                                  <p class="title is-3 is-spaced has-text-centered has-text-grey-dark">
+                                      До новых встреч!
+                                  </p>
+                                  <p class="subtitle is-5 has-text-centered has-text-grey-dark">
+                                      Возвращайтесь скорее:)
+                                  </p>
+                              </div>
+                              <br>
+                              <!-- Три разноцветные кнопки -->
+                              <div class="buttons has-addons is-centered">
+                                  <button class="button is-success is-selected">
+                                      <span class="icon">
+                                          <i class="fa-solid fa-right-to-bracket"></i>
+                                      </span>
+                                      <a href="sign/login/">Войти</a>
+                                  </button>
+
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</section>
+
+{% endblock %}

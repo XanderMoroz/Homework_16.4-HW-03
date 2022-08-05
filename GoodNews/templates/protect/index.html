@@ -1,0 +1,88 @@
+{% extends "flatpages/default.html" %}
+
+{% block content %}
+{% load static %}
+ <section class="hero is-info is-fullheight">
+          <div class="hero-body">
+              <div class="container">
+                  <div class="columns is-centered">
+                      <div class="column is-5-tablet is-5-desktop is-5-widescreen">
+                          <form class="box">
+                              <div class="field has-text-centered">
+                                  <!-- Подключаем логотип-->
+                                  <img src="{%static "image/goodnews-logo.png" %}" width="112" height="28">
+
+                              </div>
+                              <!-- Подключаем приветствие -->
+                              <div>
+                                  <p class="title is-3 is-spaced has-text-centered has-text-grey-dark">
+                                      Привет, {{request.user.username}}!
+                                  </p>
+                                  <p class="subtitle is-5 has-text-centered has-text-grey-dark">
+                                      Мы ждали, что ты вернешься:)
+                                  <h4 class="title is-4 has-text-centered has-text-grey-dark"></h4>
+                              </div>
+                              <br>
+                              <!-- Если пользователь не в списке авторов-->
+                              {% if is_not_authors %}
+                              <!-- Три разноцветные кнопки -->
+                              <div class="buttons has-addons is-centered">
+                                  <button class="button is-info is-selected">
+                                      <span class="icon">
+                                          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                      </span>
+                                      <a href="sign/logout/">Выйти</a>
+                                  </button>
+
+                                  <button class="button is-warning is-selected">
+                                      <span class="icon">
+                                          <i class="fa-solid fa-feather"></i>
+                                      <a href="sign/upgrade/">
+                                          Стать автором
+                                      </a>
+                              </button>
+
+                                  <button class="button is-success is-selected">
+                                      <span class="icon">
+                                          <i class="fa-solid fa-door-open"></i>
+                                      </span>
+                                      <a href="/news/">Далее</a>
+                                  </button>
+                              </div>
+                              <!-- Если пользователь не в списке авторов-->
+                              {% else %}
+                              <!-- Две разноцветные кнопки -->
+                              <div class="buttons has-addons is-centered">
+                                  <button class="button is-info is-selected">
+                                      <span class="icon">
+                                          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                      </span>
+                                      <a href="sign/logout/">Выйти</a>
+                                  </button>
+
+
+                                  </button>
+                                  <button class="button is-success is-selected">
+                                      <span class="icon">
+                                          <i class="fa-solid fa-door-open"></i>
+                                      </span>
+                                      <a href="/news/">Далее</a>
+                                  </button>
+                              </div>
+                              {% endif %}
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</section>
+
+<!--
+<button> <a href="sign/logout/">Выйти</a> </button>
+
+{% if is_not_authors %}
+<button> <a href="sign/upgrade/"> Стать автором</a> </button>
+{% endif %}
+
+{% endblock %}
+-->

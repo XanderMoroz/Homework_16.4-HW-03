@@ -1,0 +1,123 @@
+
+{% extends 'flatpages/default.html' %} <!--  наследуемся от шаблона default.html, который создавали для flatpages -->
+{% load custom_filters %} <!-- Загружаем фильтры (чтобы использовать фильтр "ЦЕНЗОР") -->
+
+
+{% block title %}
+Post Details            <!-- Название у нас будет Post Details -->
+{% endblock title %}
+
+
+{% block content %} <!-- В контенте на странице мы выводим саму публикацию, идентификатор которой был передан в url -->
+
+<div class="card">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48">
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+            </div>
+
+        <div class="media-content">
+            <p class="title is-4">{{ post_detail.author }}</p>
+            <p class="subtitle is-6">{{ post_detail.creation_date | date:'d.M.Y' }}</p>
+        </div>
+<!--
+        <div class="media-right">
+             Добавим специальный фильтр "Цензор" для цензурирования непотребных слов.
+                Все остальные символы превратятся в многоточие.
+            <p class="title is-4">
+                {{ post_detail.post_title | censor }}
+            </p>
+            <p class="subtitle is-6 is-pulled-right">{%for category in post_detail.categories.all%} {{category}} {% endfor %} </p>
+        </div>-->
+    </div>
+        <!-- Название статьи. -->
+    <div class="content">
+        <p class="title is-3 is-spaced has-text-centered">
+            {{ post_detail.post_title | censor }}
+        </p>
+        <!-- Список тегов категорий. -->
+        <p class="subtitle is-5 has-text-centered has-text-grey-dark">
+            {%for category in post_detail.categories.all%}
+            <span class="tag is-info">{{category}}</span>
+            {% endfor %}
+        </p>
+        <br>
+        <!-- Содержание статьи. -->
+        <p>
+            {{ post_detail.post_text | censor }}
+        </p>
+
+        <!-- Если пользователь является автором статьи. -->
+        {% if request.user.username != post_detail.author.username %}
+
+        <!-- Добавляем кнопку редактирования статьи. -->
+        <div class="buttons is-right">
+            <button class="button is-success">
+                <span class="icon">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </span>
+                <span>
+                    <a href="{% url 'post_update' post_detail.id %}">
+                        <p class="has-text-white">
+                        Редактировать
+                        </p>
+                    </a>
+                </span>
+            </button>
+
+            <!-- Добавляем кнопку удаления статьи. -->
+            <button class="button is-danger is-outlined is-right">
+                <a href="{% url 'post_delete' post_detail.id %}">
+                    <p class="has-text-danger">
+                        Удалить
+                    </p>
+                </a>
+                <span class="icon">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+        </div>
+        {% endif %}
+    </div>
+     <!-- Если пользователь авторизован. -->
+    {% if request.user.is_authenticated %}
+        <!-- Предлагаем ему подписаться на категорию статьи -->
+
+        <div class="notification is-success is-light">
+            <p class="title is-4">
+                Вы можете подписаться на новости одной из этих <strong>категорий</strong>:
+
+            {%for category in post_detail.categories.all%}
+
+                {% if not user in category.subscribers.all %}
+
+                <button class="button is-small is-danger is-light is-rounded ">
+                     <span class="icon">
+                        <i class="fa-solid fa-circle-minus"></i>
+                     </span>
+                     <a href="{% url 'subscribe' category.id %}" title="Подписаться">
+                         {{category}}
+                     </a>
+                </button>
+                {% else %}
+
+                    <button class="button is-small is-success is-rounded">
+                        <span class="icon">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        </span>
+                        <a href="{% url 'unsubscribe' category.id %}" title="Отписаться">
+                            {{category}}
+                        </a>
+                    </button>
+                {%endif%}
+                {% endfor %}
+            </p>
+        </div>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock content %}
