@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # ... позволяет аутентифицироваться через Google account(d8)
     'allauth.socialaccount.providers.google',
-    # модуль для переодической рассылки (d9.4)
+    # модуль для периодической рассылки (d9.4)
     'django_apscheduler',
 
 ]
