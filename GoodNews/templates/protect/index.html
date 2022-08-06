@@ -2,20 +2,20 @@
 
 {% block content %}
 {% load static %}
- <section class="hero is-info is-fullheight">
+ <section class="hero is-white is-fullheight">
           <div class="hero-body">
               <div class="container">
                   <div class="columns is-centered">
                       <div class="column is-5-tablet is-5-desktop is-5-widescreen">
-                          <form class="box">
+                          <form class="box ">
                               <div class="field has-text-centered">
                                   <!-- Подключаем логотип-->
-                                  <img src="{%static "image/goodnews-logo.png" %}" width="112" height="28">
+                                  <img src="{%static "image/goodnews_logo(light).png" %}" width="112" height="28">
 
                               </div>
                               <!-- Подключаем приветствие -->
                               <div>
-                                  <p class="title is-3 is-spaced has-text-centered has-text-grey-dark">
+                                  <p class="title is-5 is-spaced has-text-centered has-text-grey-dark">
                                       Привет, {{request.user.username}}!
                                   </p>
                                   <p class="subtitle is-5 has-text-centered has-text-grey-dark">
