@@ -1,0 +1,126 @@
+2022-08-06 15:21:35,475 ERROR Internal Server Error: /news/subscription/ C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\utils\log.py (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for '' not found. '' is not a valid view function or pattern name."), <traceback object at 0x000002E63F26E500>)
+Traceback (most recent call last):
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+2022-08-06 15:21:35,476 ERROR "GET /news/subscription/ HTTP/1.1" 500 170097 C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-08-06 15:22:16,852 ERROR Internal Server Error: /news/add C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\utils\log.py (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for '' not found. '' is not a valid view function or pattern name."), <traceback object at 0x000002E63F109C80>)
+Traceback (most recent call last):
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\defaulttags.py", line 322, in render
+    return nodelist.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\urls\resolvers.py", line 803, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '' not found. '' is not a valid view function or pattern name.
+2022-08-06 15:22:16,853 ERROR "GET /news/add HTTP/1.1" 500 163694 C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\servers\basehttp.py None
+2022-08-06 15:29:08,766 ERROR Internal Server Error: /news/add C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\utils\log.py (<class 'news.models.Author.DoesNotExist'>, DoesNotExist('Author matching query does not exist.'), <traceback object at 0x000002E63EEB3A00>)
+Traceback (most recent call last):
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\edit.py", line 114, in get_form_kwargs
+    kwargs = super().get_form_kwargs()
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\views\generic\edit.py", line 44, in get_form_kwargs
+    "initial": self.get_initial(),
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\GoodNews\news\views.py", line 112, in get_initial
+    author = Author.objects.get(user_id=user.pk)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\db\models\query.py", line 650, in get
+    raise self.model.DoesNotExist(
+news.models.Author.DoesNotExist: Author matching query does not exist.
+2022-08-06 15:29:08,768 ERROR "GET /news/add HTTP/1.1" 500 116715 C:\Users\Александр\PycharmProjects\Homework_16.4-HW-03\venv\lib\site-packages\django\core\servers\basehttp.py None
