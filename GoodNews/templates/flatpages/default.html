@@ -12,13 +12,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <!-- Подключаем иконки "fontawesome"-->
         <script src="https://kit.fontawesome.com/d74256e39d.js" crossorigin="anonymous"></script>
-
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar is-light has-shadow" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-            <a class="navbar-item" href="news/">
+            <a class="navbar-item" href="{% url 'post_list' %}">
             <img src="{%static "image/goodnews_logo(light).png" %}">
             </a>
 
