@@ -5,6 +5,7 @@ from .models import Post, Category
 
 # Создаём модельную форму
 class PostForm(ModelForm):
+    required_css_class = "input is-hoveredtype"
     #check_box = BooleanField(label='Confirm changes')
 
     class Meta:
@@ -21,7 +22,10 @@ class PostForm(ModelForm):
             'author'
                 ]
         labels = {
-            'categories': "категории",
+            'post_type': "Тип поста",
+            'post_title': "Название поста",
+            'post_text': "Содержание",
+            'categories': "Категории",
         }
 
         widgets = {'author': forms.HiddenInput()}
