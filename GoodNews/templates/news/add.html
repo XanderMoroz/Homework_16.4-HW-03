@@ -4,14 +4,85 @@
  
 {% block content %}
 {% if 'news.add_post' in perms %} <!-- проверка разрешений -->
-<h3>Создание публикации</h3>
+<h3></h3>
+<section class="section">
+  <h1 class="title">Создание публикации</h1>
+  <h2 class="subtitle">
+    Здесь ваши удивительные <strong>идеи</strong> превращаются в статью, на радость своим подписчикам.
+  </h2>
+</section>
+<div class="card">
+    <div class="card-content">
+      <form method="POST" >
+      {% csrf_token %}
+      <!-- Сначала выводим название статьи-->
+        <div class="field">
+            <label class="label">Название</label>
+            <div class="control">
+            <input class="input" type="text" placeholder="Введите название вашей публикации" {{ form.post_title }}
+              </input>
+            </div>
+        </div>
+
+          <div class="field">
+            <div class="field is-left">
+                <label class="label is-right">Тип публикации</label>
+                <div class="control">
+                    <div class="select">
+                    {{ form.post_type }}
+                </div>
+            </div>
+
+            </div>
 
 
-<form method="POST">
-    {% csrf_token %} 
-    {{ form }} <!-- Теперь нам нужна только готовая форма и кнопка -->
-    <input type="submit" value="Добавить публикацию">
-</form>
+
+        <div class="field">
+            <label class="label">Текст публикации</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Введите текст вашей публикации" {{ form.post_text }}
+                </textarea>
+            </div>
+        </div>
+
+              <div class="field is-right">
+            <label class="label">Категории</label>
+            <div class="control">
+                 <div class="select">
+                    {{ form.categories }}
+                </div>
+            </div>
+        </div>
+
+<br><br><br><br><br><br>
+
+      <!--  Теперь нам нужна только готовая форма и кнопка -->
+
+           <div class="field is-grouped is-right">
+                <div class="control">
+                    <button type="submit" class="button is-link">
+                        Добавить публикацию
+                    </button>
+                </div>
+                <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+                </div>
+            </div>
+  </div>
+</div>
+            <!--<input type="submit" value="Добавить публикацию"> -->
+    </form>
+
+
+
+
+
+
+
+
+
+
+
 {% else %}
 <h4>Похоже вы не авторизованны или у вас не хватает прав.</h4>
 
