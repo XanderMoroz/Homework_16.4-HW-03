@@ -9,28 +9,109 @@ Posts
 
 <!-- В контенте на странице мы выводим все публикации -->
 {% block content %}
-    <h3>Свежие публикации </h3>
-    <h4> {{ time_now|date:'M d Y' }}</h4>
-    <hr>
+    <section class="section">
+        <h1 class="title">Свежие публикации от {{ time_now|date:'M d Y' }}</h1>
+        <h2 class="subtitle">
+        Здесь представлены <strong>последние</strong> добавленные публикации, выбирайте и читайте.
+        </h2>
+</section>
+
 <!-- Перед таблицей добавим форму для поиска -->
 <form method="GET">
     {{ filter.form }} <!-- Форму от фильтров за нас сделает Django. А вот кнопку, увы придётся делать самому -->
     <input type="submit" value="Найти">
 </form>
 
+
+
+<!--
 <table>
     <thead>
         <th>Название</th>
         <th>Дата публикации</th>
         <th>Автор</th>
         <th>Категория</th>
-    </thead>
+    </thead> -->
     {% for post in filter.qs %} <!-- поменяем post_list на filter.qs, т.к. теперь мы забираем уже отобранную по каким-то параметрам информацию -->
-    <tr>
+<br>
+<div class="card">
+    <!--
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+    </figure>
+  </div>
+  -->
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">
+            <a href="{% url 'post_detail' post.id %}">{{ post.post_title |  title }}
+            </a>
+        </p>
+        <p class="subtitle is-6">{{ post.author | title }}</p>
+      </div>
+
+        {% for category in post.categories.all %}
+
+        {% if not user in category.subscribers.all %}
+
+        <div class="media-right">
+             <button class="button is-small is-danger is-light is-rounded ">
+                 <span class="icon">
+                     <i class="fa-solid fa-circle-minus"></i>
+                 </span>
+                 <a href="{% url 'subscribe' category.id %}" title="Подписаться">
+                         {{category}}
+                 </a>
+             </button>
+        </div>
+        {% else %}
+
+                    <button class="button is-small is-success is-rounded">
+                        <span class="icon">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        </span>
+                        <a href="{% url 'unsubscribe' category.id %}" title="Отписаться">
+                            {{category}}
+                        </a>
+                    </button>
+
+            {% endif %}
+            {% endfor %}
+    </div>
+
+    <div class="content">
+      {{ post.post_text | truncatewords:20 }}
+
+      <br>
+      <time datetime="2016-1-1">{{ post.creation_date | date:'d.M.Y' }}</time>
+
+    </div>
+  </div>
+
+
+    <footer class="card-footer">
+            <!-- добавим ссылку на редактирование публикации-->
+            <a href="{% url 'post_update' post.id %}" class="card-footer-item">Редактировать</a>
+            <!-- добавим ссылку на удаление публикации-->
+            <a href="{% url 'post_delete' post.id %}" class="card-footer-item">Удалить</a>
+    </footer>
+</div>
+
+ <br>
+
+<!--
+<tr>
         <td>
             <a href="{% url 'post_detail' post.id %}">{{ post.post_title |  title }}</a>
-            <a href="{% url 'post_update' post.id %}"><u>Редактировать</u></a> <!-- добавим ссылку на редактирование товара-->
-            <a href="{% url 'post_delete' post.id %}"><u>Удалить</u></a> <!-- добавим ссылку на удаление товара-->
+            <a href="{% url 'post_update' post.id %}"><u>Редактировать</u></a>
+            <a href="{% url 'post_delete' post.id %}"><u>Удалить</u></a>
         </td>
         <td>{{ post.creation_date | date:'d.M.Y' }}</td>
 
@@ -44,7 +125,7 @@ Posts
     </tr>
     {% endfor %}
 </table>
-
+-->
 <!-- Проверяем, что поддерживается постраничный вывод -->
 {% if is_paginated %}
 
